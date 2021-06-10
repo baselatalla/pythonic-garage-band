@@ -63,13 +63,6 @@ def test_bassist_repr():
 
 
 @pytest.mark.skip("todo")
-def test_band_name():
-    nirvana = Band("Nirvana", [])
-
-    assert nirvana.name == "Nirvana"
-
-
-@pytest.mark.skip("todo")
 def test_guitarist():
     jimi = Guitarist("Jimi Hendrix")
     assert jimi.name == "Jimi Hendrix"
@@ -91,6 +84,23 @@ def test_drummer():
 
 
 @pytest.mark.skip("todo")
+def test_to_list():
+    Band.to_list() == []
+    the_nobodies = Band("The Nobodies", [])
+    all_bands = Band.to_list()
+    assert len(all_bands) == 1
+    assert all_bands[0] == the_nobodies
+    
+
+@pytest.mark.skip("todo")
+def test_class_tracks_instances():
+    Band.to_list() == []
+    the_nobodies = Band("The Nobodies", [])
+    assert len(Band.instances) == 1
+    assert Band.instances[0] == the_nobodies
+
+
+@pytest.mark.skip("todo")
 def test_instruments(one_band):
     instruments = ["guitar", "bass", "drums"]
     for i, member in enumerate(one_band.members):
@@ -107,6 +117,14 @@ def test_individual_solos(one_band):
             assert member.play_solo() == "bom bom buh bom"
         elif member.get_instrument() == "drums":
             assert member.play_solo() == "rattle boom crash"
+
+
+    
+
+@pytest.mark.skip("todo")
+def test_band_name():
+    nirvana = Band("Nirvana", [])
+    assert nirvana.name == "Nirvana"
 
 
 @pytest.mark.skip("todo")
@@ -134,23 +152,6 @@ def test_play_solos_for_whole_band(one_band):
     assert solos[0] == "face melting guitar solo"
     assert solos[1] == "bom bom buh bom"
     assert solos[2] == "rattle boom crash"
-
-
-@pytest.mark.skip("todo")
-def test_class_tracks_instances():
-    assert Band.to_list() == []
-    the_nobodies = Band("The Nobodies", [])
-    assert len(Band.instances) == 1
-    assert Band.instances[0] == the_nobodies
-
-
-@pytest.mark.skip("todo")
-def test_to_list():
-    assert Band.to_list() == []
-    the_nobodies = Band("The Nobodies", [])
-    all_bands = Band.to_list()
-    assert len(all_bands) == 1
-    assert all_bands[0] == the_nobodies
 
 
 #######################
